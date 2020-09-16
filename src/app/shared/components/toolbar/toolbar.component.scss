@@ -1,0 +1,18 @@
+@import "src/scss/variables";
+
+a {
+  color: #E1E0E3;
+  text-decoration: none;
+}
+.brand{
+  color:#9984D5;
+  font-weight: 900;
+  font-size: 18px;
+  padding: 0;
+  margin-left: 0;
+}
+mat-toolbar {
+  padding: 0 0;
+  background-color: #0A041A;
+  margin-bottom: 32px;
+}

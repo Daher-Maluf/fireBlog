@@ -1,0 +1,20 @@
+@import "src/scss/variables";
+  a {
+    cursor: pointer;
+    color: #E1E0E3;
+    text-decoration: none;
+    
+  }
+   img {
+      height: 200px;
+      padding: 0;    
+      
+    }
+    p.content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #E1E0E3;
+    
+      
+    }

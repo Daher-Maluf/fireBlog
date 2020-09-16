@@ -1,0 +1,15 @@
+
+<app-hero-header></app-hero-header>
+<h2 class="blog-section-title">Blog Posts ↓</h2>
+
+<div  class="container" color="primary"class="container" color="primary" *ngIf="posts$ | async as posts; else loading">
+  
+  <mat-card class="post-card" *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </mat-card>
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

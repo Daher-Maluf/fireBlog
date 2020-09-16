@@ -1,0 +1,37 @@
+@import "src/scss/variables";
+
+.container {
+  
+  //  margin: 1.6em auto;
+  display: grid;
+  grid-template-columns: repeat(3,31%);
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  justify-content: center;
+  .post-card {
+    &:hover {
+      opacity: 0.8;
+    }
+    border-radius: 8px;
+    background: $card_background;
+    color: $default_white;
+    
+    // padding: 20px;
+    font-size: 150%;
+  }
+}
+@media screen and(max-width: 760px){
+  .container{
+    padding: 0;
+  }
+  .container .post-card{
+    grid-column: 1/-1;
+  
+   
+  }
+}
+
+.blog-section-title {
+  color: #E1E0E3;
+  
+}

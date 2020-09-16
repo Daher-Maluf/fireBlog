@@ -1,0 +1,25 @@
+@import "src/scss/variables";
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+mat-sidenav {
+  width: 200px;
+  cursor: pointer;
+  background:$button_purpure;
+  position: fixed;
+  top: 55px;
+  z-index: 1000;
+}
+
+.mat-list-base .mat-list-item,
+a {
+  color:$default_white;
+  text-decoration: none;
+  cursor: pointer;
+}

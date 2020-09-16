@@ -1,0 +1,27 @@
+@import "./scss/reset";
+@import "./scss/variables";
+@import"./scss/_categorychips";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&family=Nunito:wght@400;700;900&family=Poppins:wght@400;700&display=swap');
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0A041A;
+  
+ 
+   }
+// .active {
+//   border: 1px solid $default_white;
+// }
+.fill-remaining-space{
+  flex: 1 1 auto;
+  
+  }
+
+.container-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
