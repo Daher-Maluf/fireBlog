@@ -72,6 +72,9 @@ export class PostService {
 
   }
 
+
+
+
   private uploadImage(post: PostI, image: FileI) {
     this.filePath = `images/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);

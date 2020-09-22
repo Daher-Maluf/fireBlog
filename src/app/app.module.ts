@@ -23,6 +23,7 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
+import { BuscarComponent } from './components/pages/buscar/buscar.component';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
     EditPostComponent,
     DetailsPostComponent,
     FooterComponent,
+    BuscarComponent
     
   ],
   imports: [

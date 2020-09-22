@@ -1,4 +1,4 @@
-<div class="container" *ngIf="post$ | async as post; else loading">
+<!-- <div class="container" *ngIf="post$ | async as post; else loading">
   <mat-card class="post-card">
     <img matCardImage class="align-center" [src]="post.imagePost" />
     <mat-card-content>
@@ -10,7 +10,18 @@
       </p>
     </mat-card-content>
   </mat-card>
+</div> -->
+
+<article class="post" *ngIf="post$ | async as post; else loading">
+<div class="post-thumbnail" style="background-image: url(&quot;https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80&quot;);" >
+  <h1 class="post-title">{{ post.titlePost }}</h1>
+  <div class="post-meta">February 20, 2020</div>
 </div>
+<div class="blog-post-content">
+  {{ post.contentPost }}
+</div>
+</article>
+
 <ng-template #loading>
   <div class="container-spinner">
     <mat-spinner></mat-spinner>

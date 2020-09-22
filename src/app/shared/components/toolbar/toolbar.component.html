@@ -1,6 +1,7 @@
 <mat-toolbar  >
   <a class="brand"routerLink="/">{{ appName }}</a>
-  <span class="fill-remaining-space"></span>
+  
+ 
   <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
     <button mat-button>Admin</button>
   </a>
@@ -12,7 +13,15 @@
   <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
     <button mat-button>Logout</button>
   </a>
+  <span class="fill-remaining-space"></span>
+  <div class="container">
+    <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
+    <i class="search fa fa-search"></i>
+  </div>
+
   <a href="https://github.com/Daher-Maluf"><span><i class="fab fa-github"></i></span></a>
+
+  
 
   <ng-template #showLogin>
     <a routerLink="/login" routerLinkActive="active">

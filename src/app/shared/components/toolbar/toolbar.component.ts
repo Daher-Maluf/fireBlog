@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,9 +9,20 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ToolbarComponent implements OnInit {
   public appName = 'ngBlog';
-  constructor(public authSvc: AuthService) {}
+  constructor(public authSvc: AuthService,
+              private router: Router) {}
 
   ngOnInit() {}
+
+  buscarPost(termino:string){
+    termino = termino.trim();
+
+    if(termino.length === 0){
+      return;
+    }
+
+    this.router.navigate(['/buscar', termino])
+  }
 
   onLogout(): void {
     this.authSvc.logout();

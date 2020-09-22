@@ -2,6 +2,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { BuscarComponent } from './components/pages/buscar/buscar.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,18 @@ const routes: Routes = [
           import('./components/pages/about/about.module').then(
             m => m.AboutModule
           )
+      },
+
+      // {
+      //   path: 'buscar/:termino',
+      //   loadChildren: () =>
+      //     import('./components/pages/buscar/buscar.module').then(
+      //       m => m.BuscarModule
+      //     )
+      // },
+      {
+        path: 'buscar/:termino',
+         component:BuscarComponent
       },
       {
         path: '',
