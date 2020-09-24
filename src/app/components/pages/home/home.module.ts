@@ -9,6 +9,7 @@ import { HeroHeaderComponent } from '../../../shared/components/hero-header/hero
 
 @NgModule({
   declarations: [HomeComponent, PostComponent, HeroHeaderComponent],
-  imports: [CommonModule, HomeRoutingModule, MaterialModule]
+  imports: [CommonModule, HomeRoutingModule, MaterialModule],
+  exports: [PostComponent]
 })
 export class HomeModule { }

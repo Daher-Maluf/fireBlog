@@ -55,6 +55,26 @@ export class PostService {
     this.uploadImage(post, image);
   }
 
+  buscarPosts(termino: string) {
+   const encontrados: PostI[] = [];
+   termino = termino.toLowerCase();
+   this.getAllPosts()
+  .subscribe(resp => {
+    
+    resp.map((e, i) => {
+      // tslint:disable-next-line: no-unused-expression
+      if (e.titlePost.toLowerCase().indexOf( termino ) >= 0) {
+
+         encontrados.push(e);
+         console.log(e);
+         
+      }
+    });
+     
+  });
+  
+}
+
   private savePost(post: PostI) {
     const postObj = {
       titlePost: post.titlePost,
