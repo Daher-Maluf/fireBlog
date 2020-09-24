@@ -4,8 +4,8 @@
 <br>
 <br>
 
-<div  class="container" color="primary"class="container"  >
-<mat-card class="post-card animated fadeIn " *ngFor="let post of posts">
+<div  class="container animated fadeIn"   >
+<mat-card class="post-card" *ngFor="let post of posts">
 <a [routerLink]="['/post', post.id]">
     <img matCardImage [src]="post.imagePost" [alt]="post.imagePost" />
     </a>
