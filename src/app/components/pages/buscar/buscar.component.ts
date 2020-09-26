@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
 import { PostService } from '../../posts/post.service';
 
@@ -27,7 +26,7 @@ export class BuscarComponent implements OnInit {
       // TODO LLAMAR SERVICIO
 
 
-  // this.posts = this.postSvc.buscarPosts(params.termino);
+
         this.buscarPosts(params.termino);
 
     });

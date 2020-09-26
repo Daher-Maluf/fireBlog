@@ -22,19 +22,20 @@ mat-toolbar {
 }
 
 .container{
-  width: 10%;
-  height: 100%;
+  width: 20%;
+  height: 50%;
   display: flex;
-  justify-content: flex-start ;
+  justify-content: flex-end ;
   align-items: center;
-  padding-right: 30px;
+  padding-right: 0px;
+  
 }
 
 input[type=text]{
   position: relative;
-  margin-right: 10px;;
+  margin-right: 5px;;
   padding: 15px 40px 15px 20px;
-  width: 70px;
+  width: 50px;
   color: #525252;
   
   height: 4px;
@@ -47,7 +48,7 @@ input[type=text]{
   transition: width 0.4s ease;
   outline: none;
   
-  // &:focus{ width: 60px; }
+  &:focus{ width: 100px; }
 }
 
 .search{
@@ -55,4 +56,10 @@ input[type=text]{
   position: relative;
   left: -37px;
   color: #9984D5;
+}
+
+
+a span .fab {
+  font-size: 26px;
+  padding-bottom: 0px;
 }
