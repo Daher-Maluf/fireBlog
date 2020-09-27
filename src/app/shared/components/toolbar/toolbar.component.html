@@ -7,7 +7,7 @@
   </a>
 
   <a routerLink="/about" routerLinkActive="active">
-    <button mat-button>Contact</button>
+    <button mat-button>Contacto</button>
   </a>
 
   <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">

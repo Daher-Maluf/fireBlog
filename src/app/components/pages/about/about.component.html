@@ -7,25 +7,25 @@
       </p>
     </div>
     <div>
-      <form class="form-container" action="https://sendmail.w3layouts.com/SubmitContactForm" method="post">
+      <form class="form-container" [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
         <div>
-          <label for="w3lName"> Name </label>
-          <input type="text" name="w3lName" id="w3lName">
+          <label for="w3lName"> Nombre </label>
+          <input type="text" formControlName="nombre" >
         </div>
         <div>
           <label for="w3lSender">Email</label>
-          <input type="email" name="w3lSender" id="w3lSender">
+          <input type="email" formControlName="email" >
         </div>
         <div>
-          <label for="w3lSubject">Subject</label>
-          <input type="text" name="w3lSubject" id="w3lSubject">
+          <label for="w3lSubject">Asunto</label>
+          <input type="text" formControlName="asunto">
         </div>
         <div>
-          <label for="w3lMessage">Message</label>
-          <textarea name="w3lMessage" id="w3lMessage"></textarea>
+          <label for="w3lMessage">Mensaje</label>
+          <textarea formControlName="mensaje"></textarea>
         </div>
         <div style="display: flex; justify-content: flex-end;">
-          <input type="submit" class="button -primary" style="margin-right: 0px;">
+          <button type="submit" class="btn-send">Enviar</button>
         </div>
       </form>
     </div>
