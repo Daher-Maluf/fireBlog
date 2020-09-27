@@ -11,21 +11,55 @@
         <div>
           <label for="w3lName"> Nombre </label>
           <input type="text" formControlName="nombre" >
+           <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+             <div class="container-error-message" *ngIf="nombre.errors.required">
+               Indique su nombre!
+             </div>
+
+           </div>
         </div>
+
+
         <div>
           <label for="w3lSender">Email</label>
           <input type="email" formControlName="email" >
+          <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div class="container-error-message" *ngIf="email.errors.required">
+              Indique el email!
+            </div>
+            <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+              Ingrese una direccion de email valida!
+            </div>
+
+          </div>
         </div>
         <div>
           <label for="w3lSubject">Asunto</label>
           <input type="text" formControlName="asunto">
+          <div class="alert-danger" *ngIf="asunto.invalid && (asunto.dirty || asunto.touched)">
+            <div class="container-error-message" *ngIf="asunto.errors.required">
+              Indique el asunto!
+            </div>
+
+          </div>
         </div>
         <div>
           <label for="w3lMessage">Mensaje</label>
           <textarea formControlName="mensaje"></textarea>
+          <div class="alert-danger" *ngIf="mensaje.invalid && (mensaje.dirty || mensaje.touched)">
+            <div class="container-error-message" *ngIf="mensaje.errors.required">
+              Indique su mensaje!
+            </div>
+         
+            <div class="container-error-message" *ngIf="mensaje.errors.minlength">
+              El mensaje debe tener un minimo de 10 caracteres.
+            </div>
+            
+
+          </div>
         </div>
         <div style="display: flex; justify-content: flex-end;">
-          <button mat-raised-button class="submit-btn" type="submit" >Enviar</button>
+          <button mat-raised-button class="submit-btn" type="submit"  >Enviar</button>
         </div>
       </form>
     </div>
