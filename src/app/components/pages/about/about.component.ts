@@ -9,6 +9,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AboutComponent implements OnInit {
 
+  constructor(private contactSvc: ContactService) {
+    this.contactForm = this.createFormGroup();
+  }
+
+  contactForm: FormGroup;
+
   createFormGroup(){
     return new FormGroup({
       nombre: new FormControl(''),
@@ -19,12 +25,6 @@ export class AboutComponent implements OnInit {
     });
   }
 
-  contactForm: FormGroup;
-
-  constructor(private contactSvc: ContactService) { 
-    this.contactForm = this.createFormGroup();
-  }
-
   ngOnInit() {
   }
 
@@ -33,9 +33,9 @@ export class AboutComponent implements OnInit {
   }
 
   onSaveForm(){
-    
+
     this.contactSvc.saveMessage(this.contactForm.value);
-    
+
   }
 
 }
