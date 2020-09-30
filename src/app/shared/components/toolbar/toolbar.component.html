@@ -2,7 +2,8 @@
   <mat-toolbar-row>
   <a class="brand" routerLink="/">{{ appName }}</a>
   
- 
+  
+ <div fxHide.xs="true">
   <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
     <button mat-button>Admin</button>
   </a>
@@ -14,23 +15,60 @@
   <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
     <button mat-button>Logout</button>
   </a>
-  <span class="fill-remaining-space"></span>
-  <div class="container">
-    <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
-    <i class="search fa fa-search"></i>
-  </div>
+  
 
-  <a href="https://github.com/Daher-Maluf"><span><i class="fab fa-github"></i></span></a>
+  
+  
+ 
 
   
 
   <ng-template #showLogin>
     <a routerLink="/login" routerLinkActive="active">
-      <button mat-button>Login</button>
+      <button mat-button >Login</button>
     </a>
   </ng-template>
+</div>
+<span class="fill-remaining-space"></span>
+<div class="container">
+  <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
+  <i class="search fa fa-search"></i>
+</div>
+<a href="https://github.com/Daher-Maluf"><span><i class="fab fa-github"></i></span></a>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="deviceXs">
-    <span style="color: aliceblue;">Second Row</span>
+    <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
+      <button mat-button>Admin</button>
+    </a>
+  
+    <a routerLink="/about" routerLinkActive="active">
+      <button mat-button>Contacto</button>
+    </a>
+  
+    <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
+      <button mat-button>Logout</button>
+    </a>
+    <ng-template #showLogin>
+      <a routerLink="/login" routerLinkActive="active">
+        <button mat-button >Login</button>
+      </a>
+    </ng-template>
+    
+   
+    
   </mat-toolbar-row>
 </mat-toolbar>
+
+
+
+<!-- <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
+  <button mat-flat-button color="primary">Admin</button>
+</a>
+
+<a routerLink="/about" routerLinkActive="active">
+  <button mat-flat-button color="primary">Contacto</button>
+</a>
+
+<a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
+  <button mat-raised-button color="accent">Logout</button>
+</a> -->

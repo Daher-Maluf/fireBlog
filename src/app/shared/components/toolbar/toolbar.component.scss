@@ -9,9 +9,11 @@ a {
 a:hover{
  color: #9984D5;
 }
+
 a button {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
+ 
 }
 .brand{
   color:#9984D5;
@@ -25,6 +27,9 @@ mat-toolbar {
   padding: 0 0;
   background-color: #0A041A;
   margin-bottom: 32px;
+}
+mat-toolbar-row {
+  padding: 0;
 }
 
 .container{
@@ -54,7 +59,19 @@ input[type=text]{
   transition: width 0.4s ease;
   outline: none;
   
+  
   &:focus{ width: 100px; }
+}
+@media screen and(max-width: 599px){
+  input[type=text]{
+    width: 100px;
+    padding: 15px 30px 15px 20px;
+  }
+  a button{
+   
+    font-weight: 800;
+    
+  }
 }
 
 .search{
