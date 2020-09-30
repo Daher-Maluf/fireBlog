@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 /* Firebase */
@@ -50,7 +51,8 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
     NewPostModule,
     MaterialModule,
     ReactiveFormsModule,
-    EditPostModule
+    EditPostModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: StorageBucket, useValue: 'gs://ngblog-149c9.appspot.com' }

@@ -1,5 +1,6 @@
-<mat-toolbar  >
-  <a class="brand"routerLink="/">{{ appName }}</a>
+<mat-toolbar >
+  <mat-toolbar-row>
+  <a class="brand" routerLink="/">{{ appName }}</a>
   
  
   <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
@@ -28,4 +29,8 @@
       <button mat-button>Login</button>
     </a>
   </ng-template>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs">
+    <span style="color: aliceblue;">Second Row</span>
+  </mat-toolbar-row>
 </mat-toolbar>
