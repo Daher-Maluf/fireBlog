@@ -1,15 +1,18 @@
-<div class="two-grids -contact">
-  <div class="post-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1525598912003-663126343e1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'); margin-bottom: 0px;">
+<div 
+fxLayout='row' 
+class="two-grids -contact"
+fxLayout.xs="column" >
+  <div fxFlex="50" class="post-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1525598912003-663126343e1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'); margin-bottom: 0px;">
     <h1 class="post-title">
       Get in Touch</h1>
       <p>
         Let me help you kick start your next project →
       </p>
     </div>
-    <div>
+    <div fxFlex="50">
       <form class="form-container" [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
         <div>
-          <label for="w3lName"> Nombre </label>
+          <label> Nombre </label>
           <input type="text" formControlName="nombre" >
            <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
              <div class="container-error-message" *ngIf="nombre.errors.required">
@@ -21,7 +24,7 @@
 
 
         <div>
-          <label for="w3lSender">Email</label>
+          <label>Email</label>
           <input type="email" formControlName="email" >
           <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
             <div class="container-error-message" *ngIf="email.errors.required">
@@ -34,7 +37,7 @@
           </div>
         </div>
         <div>
-          <label for="w3lSubject">Asunto</label>
+          <label>Asunto</label>
           <input type="text" formControlName="asunto">
           <div class="alert-danger" *ngIf="asunto.invalid && (asunto.dirty || asunto.touched)">
             <div class="container-error-message" *ngIf="asunto.errors.required">
@@ -44,7 +47,7 @@
           </div>
         </div>
         <div>
-          <label for="w3lMessage">Mensaje</label>
+          <label>Mensaje</label>
           <textarea formControlName="mensaje"></textarea>
           <div class="alert-danger" *ngIf="mensaje.invalid && (mensaje.dirty || mensaje.touched)">
             <div class="container-error-message" *ngIf="mensaje.errors.required">
@@ -59,7 +62,7 @@
           </div>
         </div>
         <div style="display: flex; justify-content: flex-end;">
-          <button mat-raised-button class="submit-btn" type="submit"  >Enviar</button>
+          <button mat-raised-button class="submit-btn" type="submit">Enviar</button>
         </div>
       </form>
     </div>

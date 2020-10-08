@@ -2,7 +2,7 @@
 .two-grids {
   display: grid;
   grid-gap: 32px;
-  grid-template-columns: repeat(2,50%);
+  
 }
 
 .two-grids.-contact .post-thumbnail {
@@ -34,7 +34,7 @@ p {
 .post-thumbnail {
   text-align: center;
   min-height: 380px;
-  background-color: var(--featured-bg);
+  background-color: #66578d;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
@@ -46,6 +46,9 @@ p {
   position: relative;
   padding: 18px;
   overflow: hidden;
+}
+div {
+  display: block;
 }
 
 .post-thumbnail:before {
@@ -69,6 +72,12 @@ form {
   display: block;
   margin-top: 0em;
 }
+form-container {
+  background-color:#020204;
+  padding: 32px;
+  border: 1px solid #181326;
+  border-radius: 9px;
+}
 .form-container label {
   display: block;
   margin-bottom: .5rem;
@@ -89,7 +98,7 @@ label {
   width: calc(100% - 24px);
   margin-bottom: 1.5rem;
   background-color: #181326;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+ 
 }
 
 input {
@@ -155,16 +164,12 @@ border-radius: 8px;
 .submit-btn:hover:not([disabled]){
   background-color: $card_background;
 }
-@media screen and(max-width: 760px){
-  .two-grids.-contact .post-thumbnail{
-    padding: 0;
-  }
-  .-contact .post-thumbnail{
-    grid-column: 1/-1;
-    grid-template-columns: repeat(1,100%);
+@media screen and(max-width: 570px){
   
+  h1{
+    font-size: 1.5rem;
+    
    
   }
-  
 }
 
