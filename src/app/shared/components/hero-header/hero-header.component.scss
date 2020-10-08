@@ -35,9 +35,13 @@ div {
     border-radius: 9px;
     text-decoration: none;
     color: #868892;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
     margin: 0 20px 0 0;
-    transition: background-color .3s linear;
+}
+
+.button:hover{
+    background-color: #0a041a;
+    transition: background-color .5s linear;
 }
 
