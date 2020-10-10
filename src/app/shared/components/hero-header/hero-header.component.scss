@@ -26,6 +26,9 @@ div {
 * {
     margin-top: 0;
 }
+.animate__animated.animate__slideInLeft {
+    --animate-duration: 2.5s;
+  }
 
 .button {
     padding: 18px 27px;

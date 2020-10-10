@@ -67,6 +67,7 @@ color: #E1E0E3;
   
     //  margin: 1.6em auto;
     display: grid;
+   
     grid-template-columns: repeat(3,31%);
     grid-column-gap: 40px;
     grid-row-gap: 20px;
@@ -88,6 +89,7 @@ color: #E1E0E3;
       font-size: 150%;
     }
   }
+ 
   
 }
 

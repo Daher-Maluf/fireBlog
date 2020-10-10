@@ -57,6 +57,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
   providers: [
     { provide: StorageBucket, useValue: 'gs://ngblog-149c9.appspot.com' }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
+    "animate.css": "^4.1.1",
     "firebase": "^7.20.0",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.4.3",
