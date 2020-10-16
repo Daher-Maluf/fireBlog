@@ -1,6 +1,6 @@
 import { PostService } from './../../posts/post.service';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
 
@@ -11,20 +11,40 @@ import { PostI } from '../../../shared/models/post.interface';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public lastVisible: any = [];
+  public posts: any;
 
-  public posts$: Observable<PostI[]>;
 
-  // @HostListener('window:scroll', ['$event'])
-  // onScroll(){
-  //   const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1300;
-  //   const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
-  //   console.log({pos, max});
-    
-  // }
+ // Save first document in snapshot of items received
+ firstInResponse: any = [];
 
-  constructor(private postSvc: PostService) { }
+ // Save last document in snapshot of items received
+ lastInResponse: any = [];
+
+cargado = false;
+
+  constructor(
+    private firestore: AngularFirestore,
+    private postSvc: PostService
+     ) {
+  //  this.paginatedService.loadItems();
+     this.loadPost();
+   }
 
   ngOnInit() {
-    this.posts$ = this.postSvc.getAllPosts();
+
+
   }
+
+  loadPost() {
+    this.cargado = false;
+    this.posts = this.postSvc.getPagPost(this.lastVisible, 6);
+    console.log('load post', this.posts);
+    setTimeout(() => {
+      this.cargado = true;
+    }, 3000);
+
+  }
+
+
 }

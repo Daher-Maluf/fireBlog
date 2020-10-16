@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(1,100%);
   
+  
   grid-row-gap: 20px;
   .post-card {
     &:hover {

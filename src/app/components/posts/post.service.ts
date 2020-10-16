@@ -14,6 +14,7 @@ export class PostService {
   private filePath: any;
   private downloadURL: Observable<string>;
 
+
   constructor(
     private afs: AngularFirestore,
     private storage: AngularFireStorage
@@ -26,6 +27,7 @@ export class PostService {
       .snapshotChanges()
       .pipe(
         map(actions =>
+
           actions.map(a => {
             const data = a.payload.doc.data() as PostI;
             const id = a.payload.doc.id;
@@ -34,6 +36,28 @@ export class PostService {
         )
       );
   }
+  public getPagPost(lastVisible: any, limit: number) {
+
+    const postsCollection: AngularFirestoreCollection<PostI> =
+    this.afs.collection<PostI>('posts');
+    const postRef = postsCollection.ref;
+    const result: PostI[] = [];
+
+    postRef.orderBy('titlePost', 'desc').startAfter(lastVisible).limit(limit)
+    .get().then(snap => {
+
+      snap.forEach(doc => {
+        const post = doc.data() as PostI;
+        result.push(post);
+
+      });
+    }).catch(error => {
+      console.log('error', error);
+
+    });
+    return result;
+  }
+
 
   public getOnePost(id: PostI): Observable<PostI> {
     return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
@@ -60,19 +84,19 @@ export class PostService {
    termino = termino.toLowerCase();
    this.getAllPosts()
   .subscribe(resp => {
-    
+
     resp.map((e, i) => {
       // tslint:disable-next-line: no-unused-expression
       if (e.titlePost.toLowerCase().indexOf( termino ) >= 0) {
 
          encontrados.push(e);
          console.log(e);
-         
+
       }
     });
-     
+
   });
-  
+
 }
 
   private savePost(post: PostI) {
