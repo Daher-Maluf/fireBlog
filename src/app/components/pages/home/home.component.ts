@@ -42,7 +42,7 @@ cargado = false;
     console.log('load post', this.posts);
     setTimeout(() => {
       this.cargado = true;
-    }, 3000);
+    }, 1000);
 
   }
 

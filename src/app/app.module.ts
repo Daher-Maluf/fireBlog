@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { QuillModule } from 'ngx-quill';
 
 
 /* Firebase */
@@ -17,6 +18,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,7 +40,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
     DetailsPostComponent,
     FooterComponent,
     BuscarComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,9 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
     MaterialModule,
     ReactiveFormsModule,
     EditPostModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    QuillModule.forRoot()
+
   ],
   providers: [
     { provide: StorageBucket, useValue: 'gs://ngblog-149c9.appspot.com' }

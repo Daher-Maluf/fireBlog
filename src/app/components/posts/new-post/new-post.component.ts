@@ -10,6 +10,9 @@ import { PostService } from '../post.service';
 })
 export class NewPostComponent implements OnInit {
   private image: any;
+  editorStyle = {
+    heigth: '300px;'
+  };
   constructor(private postSvc: PostService) { }
 
   public newPostForm = new FormGroup({

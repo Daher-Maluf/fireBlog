@@ -11,6 +11,7 @@ import { PostI } from '../../../shared/models/post.interface';
 })
 export class DetailsPostComponent implements OnInit {
   public post$: Observable<PostI>;
+  
 
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }
 
