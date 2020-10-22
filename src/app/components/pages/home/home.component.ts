@@ -11,15 +11,10 @@ import { PostI } from '../../../shared/models/post.interface';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public lastVisible: any = [];
-  public posts: any;
+  // public lastVisible: any = [];
+  // public posts: any;
+  public posts$: Observable<PostI[]>;
 
-
- // Save first document in snapshot of items received
- firstInResponse: any = [];
-
- // Save last document in snapshot of items received
- lastInResponse: any = [];
 
 cargado = false;
 
@@ -28,23 +23,23 @@ cargado = false;
     private postSvc: PostService
      ) {
   //  this.paginatedService.loadItems();
-     this.loadPost();
+    //  this.loadPost();
    }
 
   ngOnInit() {
-
-
-  }
-
-  loadPost() {
-    this.cargado = false;
-    this.posts = this.postSvc.getPagPost(this.lastVisible, 6);
-    console.log('load post', this.posts);
-    setTimeout(() => {
-      this.cargado = true;
-    }, 1000);
+    this.posts$ = this.postSvc.getAllPosts();
 
   }
+
+  // loadPost() {
+  //   this.cargado = false;
+  //   this.posts = this.postSvc.getPagPost(this.lastVisible, 6);
+  //   console.log('load post', this.posts);
+  //   setTimeout(() => {
+  //     this.cargado = true;
+  //   }, 1000);
+
+  // }
 
 
 }

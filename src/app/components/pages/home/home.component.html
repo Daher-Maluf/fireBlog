@@ -1,6 +1,6 @@
 
 <app-hero-header></app-hero-header>
-<h2 class="blog-section-title">Blog Posts ↓</h2>
+<!-- <h2 class="blog-section-title">Blog Posts ↓</h2>
 <div class="container-spinner" *ngIf="!cargado">
   <app-spinner></app-spinner>
 </div>
@@ -16,6 +16,20 @@
 </div>
 <!-- <button mat-raised-button (click)="prevPage()" [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button>
   <button mat-raised-button (click)="nextPage()" [disabled]="disable_next">Next</button> -->
-<ng-template #loading>
+<!-- <ng-template #loading> -->
   
+<!-- </ng-template> --> -->
+
+<h2 class="blog-section-title">Blog Posts ↓</h2>
+
+<div class="container animated fadeIn"  *ngIf="posts$ | async as posts; else loading">
+  
+  <mat-card  class="post-card  " *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </mat-card>
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <app-spinner></app-spinner>
+  </div>
 </ng-template>
