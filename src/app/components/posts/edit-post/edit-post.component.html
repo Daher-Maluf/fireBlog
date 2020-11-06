@@ -4,15 +4,15 @@
       <mat-label>Title</mat-label>
       <input matInput placeholder="Title post" formControlName="titlePost">
     </mat-form-field>
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-label>Content</mat-label>
       <input matInput placeholder="Content post" formControlName="contentPost">
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field>
       <mat-select placeholder="Tags" multiple formControlName="tagsPost">
-        <mat-option value="life">Life</mat-option>
-        <mat-option value="sport">Sport</mat-option>
-        <mat-option value="beauty">Beauty</mat-option>
+        <mat-option value="Javascript">Javascript</mat-option>
+        <mat-option value="Angular">Angular</mat-option>
+        <mat-option value="Node">Node</mat-option>
       </mat-select>
     </mat-form-field>
     <div class="container-input-file">
@@ -21,6 +21,7 @@
         <mat-icon>cloud_upload</mat-icon><span>CHOOSE IMAGE</span>
       </label>
     </div>
+    <quill-editor [styles]="{height: '200px'}" formControlName="contentPost" ></quill-editor>
     <div class="container-button">
       <input type="submit" class="mat-flat-button" value="Save" [mat-dialog-close]="true">
     </div>

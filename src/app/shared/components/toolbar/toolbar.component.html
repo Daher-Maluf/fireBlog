@@ -11,6 +11,7 @@
   <a routerLink="/about" routerLinkActive="active">
     <button mat-button>Contacto</button>
   </a>
+ 
 
   <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
     <button mat-button>Logout</button>
@@ -34,6 +35,9 @@
   <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
   <i class="search fa fa-search"></i>
 </div>
+<a routerLink="/about" routerLinkActive="active">
+  <button mat-button><i class="fas fa-tags"></i></button>
+</a>
 <a href="https://github.com/Daher-Maluf"><span><i class="fab fa-github"></i></span></a>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="deviceXs">

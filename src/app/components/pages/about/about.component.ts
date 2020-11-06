@@ -19,12 +19,12 @@ export class AboutComponent implements OnInit {
 
 
 
-  createFormGroup(){
+  createFormGroup() {
     return new FormGroup({
       nombre: new FormControl('', Validators.required),
-      email: new FormControl('',[Validators.required, Validators.pattern(this.emailPattern)]),
-      asunto: new FormControl('',Validators.required),
-      mensaje: new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      asunto: new FormControl('', Validators.required),
+      mensaje: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
 
     });
   }
@@ -32,21 +32,21 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
 
-  onResetForm(){
+  onResetForm() {
     this.contactForm.reset();
   }
 
-  onSaveForm(){
-     if(this.contactForm.valid){
+  onSaveForm() {
+     if (this.contactForm.valid) {
       this.contactSvc.saveMessage(this.contactForm.value);
       this.onResetForm();
       console.log('validado');
-      
-     }else{
+
+     } else {
        console.log('No Valido');
-       
+
      }
-    
+
 
   }
 
