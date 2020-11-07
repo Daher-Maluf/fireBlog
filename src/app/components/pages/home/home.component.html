@@ -24,7 +24,7 @@
 
 <div class="container animated fadeIn"  *ngIf="posts$ | async as posts; else loading">
   
-  <mat-card  class="post-card  " *ngFor="let post of posts">
+  <mat-card  class="post-card  " *ngFor="let post of posts ">
     <app-post [post]="post"></app-post>
   </mat-card>
 </div>

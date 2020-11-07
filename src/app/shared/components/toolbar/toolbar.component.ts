@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public appName = 'Sirur';
+  public appName = 'ngBlog';
   @Input() deviceXs: boolean;
   constructor(public authSvc: AuthService,
               private router: Router) {}

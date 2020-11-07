@@ -22,6 +22,13 @@ const routes: Routes = [
             m => m.AboutModule
           )
       },
+      {
+        path: 'tags',
+        loadChildren: () =>
+          import('./components/pages/tags/Tags.module').then(
+            m => m.TagsModule
+          )
+      },
 
       // {
       //   path: 'buscar/:termino',
@@ -32,7 +39,7 @@ const routes: Routes = [
       // },
       {
         path: 'buscar/:termino',
-         component:BuscarComponent
+         component: BuscarComponent
       },
       {
         path: '',

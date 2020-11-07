@@ -1,0 +1,64 @@
+.tag-lg {
+    font-size: 1.5em;
+    border-radius: 4px;
+}
+
+.tag {
+    display: inline-block;
+    border-radius: 3px;
+    padding: .2em .5em .3em;
+    border-radius: 2px;
+    background: #454e56;
+    color: #b2becd;
+    font-weight: 600;
+    margin: .25em .1em;
+}
+
+.tag-javascript {
+    background: #f0db4f;
+    color: #000;
+}
+.tag-node {
+    background: #90c53f;
+    color: #46483d;
+}
+.tag-angular {
+    background: #dc0530;
+    color: #fff;
+}
+.tag-typescript {
+    background: #2775c3;
+    color: #fff;
+}
+.tag-css {
+    color: #313244;
+    background: #f954be;
+}
+.tag-ionic {
+    background: #fff;
+    color: #4a8afc;
+}
+.tag-rxjs {
+    background: #ff4088;
+    color: #2a2e35;
+}
+.tag-python {
+    color: #ffda5d;
+    background: #3879ab;
+}
+.tag-google-maps {
+    background: #33a668;
+    color: #f8d845;
+}
+.tag-firebase {
+    background: #ffcb2b;
+    color: #12181a;
+}
+.tag-docker {
+    color: #fff;
+    background: #2496ed;
+}
+.tag-github {
+    color: #fff;
+    background: #24292e;
+}
