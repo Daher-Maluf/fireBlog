@@ -22,6 +22,7 @@
 
 <h2 class="blog-section-title">Blog Posts ↓</h2>
 
+
 <div class="container animated fadeIn"  *ngIf="posts$ | async as posts; else loading">
   
   <mat-card  class="post-card  " *ngFor="let post of posts ">

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
+import { TagsService } from '../tags/tags.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private postSvc: PostService
+    private postSvc: PostService,
+    private ts: TagsService
      ) {
   //  this.paginatedService.loadItems();
     //  this.loadPost();
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.posts$ = this.postSvc.getAllPosts();
 
+  }
+
+  buscarDatos(){
+    this.ts.col$('posts').subscribe(posts =>  console.log(posts));
   }
 
   // loadPost() {

@@ -44,6 +44,6 @@ import { QuillModule } from 'ngx-quill';
     ['link', 'image', 'video']                         // link and image, video
           ]
         }})],
-  exports: [PostComponent]
+  exports: [PostComponent,SpinnerComponent]
 })
 export class HomeModule { }

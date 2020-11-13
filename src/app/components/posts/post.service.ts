@@ -137,7 +137,7 @@ export class PostService {
 
 
   async getPostByCategory(category: string) {
-    const categoryArr: PostI[] = [];
+    // const categoryArr: PostI[] = [];
 
 
     console.log('entre', category);
