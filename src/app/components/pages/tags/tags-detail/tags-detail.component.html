@@ -1,0 +1,23 @@
+<div  class="container animated fadeIn"   >
+    <mat-card class="post-card" *ngFor="let category of categoryArr">
+    <a [routerLink]="['/post', category.id]">
+        <img matCardImage [src]="category.imagePost" [alt]="category.imagePost" />
+        </a>
+        <mat-card-content>
+          <mat-card-title>
+            <a [routerLink]="['/post', category.id]">
+              {{ category.titlePost }}
+            </a>
+          </mat-card-title>
+        </mat-card-content>
+        
+        <mat-card-actions>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of category.tagsPost" [ngClass]="tag">
+              {{ tag }}
+            </mat-chip>
+          </mat-chip-list>
+        </mat-card-actions>
+    </mat-card>
+    
+    </div>

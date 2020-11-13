@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public posts$: Observable<PostI[]>;
 
 
-cargado = false;
+// cargado = false;
 
   constructor(
     private firestore: AngularFirestore,

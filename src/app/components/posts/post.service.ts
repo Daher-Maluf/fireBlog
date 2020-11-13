@@ -15,6 +15,7 @@ export class PostService {
   private downloadURL: Observable<string>;
 
 
+
   constructor(
     private afs: AngularFirestore,
     private storage: AngularFireStorage
@@ -132,5 +133,17 @@ export class PostService {
           });
         })
       ).subscribe();
+  }
+
+
+  async getPostByCategory(category: string) {
+    const categoryArr: PostI[] = [];
+
+
+    console.log('entre', category);
+    return this.postsCollection.ref.where('tagsPost','array-contains', category).get();
+
+
+
   }
 }
