@@ -136,14 +136,4 @@ export class PostService {
   }
 
 
-  async getPostByCategory(category: string) {
-    // const categoryArr: PostI[] = [];
-
-
-    console.log('entre', category);
-    return this.postsCollection.ref.where('tagsPost','array-contains', category).get();
-
-
-
-  }
 }

@@ -1,13 +1,49 @@
 @import "src/scss/variables";
-
-.container {
+.container{
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1,100%);
   
-    //  margin: 1.6em auto;
+  
+  grid-row-gap: 20px;
+  .post-card {
+    &:hover {
+      opacity: 0.8;
+      
+    }
+    border-radius: 9px;
+    line-height: 1.5;
+    overflow: hidden;
+    border: 1px solid #181326;
+    box-shadow: 0 0 30px #020204;
+    border-radius: 8px;
+    background: $card_background;
+    color: $default_white;
+    
+    // padding: 20px;
+    font-size: 150%;
+  }
+}
+  
+
+//   .container .post-card{
+//     grid-column: 1/-1;
+//     margin: 0 32px;
+//     height: 400px;
+ 
+
+// }
+
+.blog-section-title {
+color: #E1E0E3;
+
+}
+@media(min-width: 640px){
+  .container{
     display: grid;
-    grid-template-columns: repeat(3,31%);
+    grid-template-columns: repeat(2,47%);
     grid-column-gap: 40px;
     grid-row-gap: 20px;
-    justify-content: center;
     .post-card {
       &:hover {
         opacity: 0.8;
@@ -26,42 +62,37 @@
       font-size: 150%;
     }
   }
-  @media screen and(max-width: 760px){
-    .container{
-      padding: 0;
-    }
-    .container .post-card{
-      grid-column: 1/-1;
-    
-     
-    }
-  }
+}
+@media(min-width: 1010px){
+  .container {
   
-  .blog-section-title {
-    color: #E1E0E3;
-    
-  }
-
-  a {
-    cursor: pointer;
-    color: #E1E0E3;
-    text-decoration: none;
-    
-  }
-  a:hover{
-    color: #9984d5;
-  }
-   img {
-      height: 250px;
-     
-      padding: 0;    
-      
-    }
-    p.content {
-      white-space: nowrap;
+    //  margin: 1.6em auto;
+    display: grid;
+   
+    grid-template-columns: repeat(3,31%);
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
+    justify-content: center;
+    .post-card {
+      &:hover {
+        opacity: 0.9;
+        
+      }
+      border-radius: 8px;
+      line-height: 1.5;
       overflow: hidden;
-      text-overflow: ellipsis;
-      color: #E1E0E3;
-    
+      border: 1px solid #181326;
+      box-shadow: 0 0 30px #020204;
+      background: $card_background;
+      color: $default_white;
       
+      // padding: 20px;
+      font-size: 150%;
     }
+  }
+ 
+  
+}
+
+
+

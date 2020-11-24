@@ -3,7 +3,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { promise } from 'protractor';
 import { Observable } from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
-import { PostService } from '../../../posts/post.service';
 import { TagsService } from '../tags.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class TagsDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private ps: PostService,
     private ts: TagsService
     ) { }
 
@@ -29,15 +27,6 @@ export class TagsDetailComponent implements OnInit {
 
     this.postscat$ = this.ts.getPostByCategory(category);
 
-    // await this.ps.getPostByCategory(category).
-    // then(snap => {
-    //   snap.forEach(doc => {
-    //    this.categoryArr.push(doc.data() as PostI);
-    //   });
-    //   console.log(this.categoryArr);
-    // }).catch(err => {
-    //   console.log('error', err);
-    // });
   }
 
 }

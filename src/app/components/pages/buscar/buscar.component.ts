@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
 import { PostService } from '../../posts/post.service';
 
@@ -13,12 +14,14 @@ export class BuscarComponent implements OnInit {
 
   public termino = '';
   public posts: PostI [] = [];
+  public busquedas$: Observable<PostI[]>;
 
 
   constructor(private activatedRoute: ActivatedRoute,
               private postSvc: PostService) { }
 
   ngOnInit(): void {
+
       this.activatedRoute.params.subscribe( params => {
         console.log(params.termino);
 
@@ -32,10 +35,11 @@ export class BuscarComponent implements OnInit {
     });
 
 
+
   }
 
   buscarPosts(termino: string) {
-    this.posts = [];
+    this.busquedas$ = of(this.posts = []);
     termino = termino.toLowerCase();
     this.postSvc.getAllPosts()
    .subscribe(resp => {

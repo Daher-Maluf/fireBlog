@@ -17,6 +17,8 @@ export class TagsService {
     this.postsCollection = afs.collection<PostI>('posts');
    }
 
+   
+// metodo que nos da acceso a las colecciones.
  private col<T>(ref: collectionPredicate<T>, queryFn?): AngularFirestoreCollection{
       return typeof ref === "string" ? this.afs.collection(ref, queryFn) : ref;
   }
@@ -33,10 +35,6 @@ export class TagsService {
 
      );
   }
-
-
-
-
 
 
   getPostByCategory(category: string) {

@@ -1,26 +1,11 @@
-<div  class="container animated fadeIn" *ngIf="postscat$ | async as categories; else loading"  >
-    <mat-card class="post-card" *ngFor="let cat of categories">
-    <a [routerLink]="['/post', cat.id]">
-        <img matCardImage [src]="cat.imagePost" [alt]="cat.imagePost" />
-        </a>
-        <mat-card-content>
-          <mat-card-title>
-            <a [routerLink]="['/post', cat.id]">
-              {{ cat.titlePost }}
-            </a>
-          </mat-card-title>
-        </mat-card-content>
-        
-        <mat-card-actions>
-          <mat-chip-list>
-            <mat-chip *ngFor="let tag of cat.tagsPost" [ngClass]="tag">
-              {{ tag }}
-            </mat-chip>
-          </mat-chip-list>
-        </mat-card-actions>
-    </mat-card>
-    
+
+
+    <div  class="container animated fadeIn" *ngIf="postscat$ | async as posts; else loading"  >
+      <mat-card  class="post-card  " *ngFor="let post of posts ">
+        <app-post [post]="post"></app-post>
+      </mat-card>
     </div>
+  
     <ng-template #loading>
       <div class="container-spinner">
         <app-spinner></app-spinner>
