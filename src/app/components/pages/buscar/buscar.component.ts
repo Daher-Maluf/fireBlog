@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
 import { PostService } from '../../posts/post.service';
 
@@ -40,6 +40,7 @@ export class BuscarComponent implements OnInit {
 
   buscarPosts(termino: string) {
     this.busquedas$ = of(this.posts = []);
+    console.log(this.busquedas$);
     termino = termino.toLowerCase();
     this.postSvc.getAllPosts()
    .subscribe(resp => {

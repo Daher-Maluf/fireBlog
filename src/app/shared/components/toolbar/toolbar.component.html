@@ -1,4 +1,5 @@
 <mat-toolbar >
+  
   <mat-toolbar-row>
   <a class="brand animate__animated animate__jello" routerLink="/">{{ appName }}</a>
   
@@ -19,11 +20,6 @@
   
 
   
-  
- 
-
-  
-
   <ng-template #showLogin>
     <a routerLink="/login" routerLinkActive="active">
       <button mat-button >Login</button>
@@ -31,7 +27,7 @@
   </ng-template>
 </div>
 <span class="fill-remaining-space"></span>
-<div class="container">
+<div class="container" fxShow fxHide.xs="true" fxHide.lg="false">
   <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
   <i class="search fa fa-search"></i>
 </div>
@@ -40,6 +36,7 @@
 </a>
 <a href="https://github.com/Daher-Maluf"><span><i class="fab fa-github"></i></span></a>
   </mat-toolbar-row>
+
   <mat-toolbar-row *ngIf="deviceXs">
     <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
       <button mat-button>Admin</button>
@@ -58,9 +55,20 @@
       </a>
     </ng-template>
     
-   
-    
   </mat-toolbar-row>
+ 
+  <ng-container *ngIf="deviceXs" >
+    <mat-toolbar-row>
+      <div class="container buscar-container"  >
+        <input placeholder='Buscar...'  type="text" (keyup.enter)="buscarPost(buscarTexto.value)" #buscarTexto>
+        <i class="search fa fa-search"></i>
+      </div>
+    </mat-toolbar-row>
+   
+  
+  </ng-container>
+ 
+
 </mat-toolbar>
 
 

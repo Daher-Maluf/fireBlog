@@ -1,6 +1,7 @@
 
 
 <div  class="container animated fadeIn" *ngIf="busquedas$ | async as posts; else loading"  >
+  
 <mat-card class="post-card" *ngFor="let post of posts">
   <app-post [post]="post"></app-post>
 </mat-card>

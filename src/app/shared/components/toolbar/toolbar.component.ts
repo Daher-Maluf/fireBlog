@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
 export class ToolbarComponent implements OnInit {
   public appName = 'ngBlog';
   @Input() deviceXs: boolean;
+  @Input() deviceSm: boolean;
+  @Input() deviceMd: boolean;
   constructor(public authSvc: AuthService,
               private router: Router) {}
 

@@ -13,9 +13,9 @@
 </div> -->
 
 <article class="post" *ngIf="post$ | async as post; else loading">
-<div class="post-thumbnail" style="background-image: url(&quot;https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80&quot;);" >
-  <h1 class="post-title">{{ post.titlePost }}</h1>
-  <div class="post-meta">February 20, 2020</div>
+<div class="header">
+  <h1 class="post-title" [ngStyle.xs]="{'font-size.px': 60}">{{ post.titlePost }}</h1>
+  
 </div>
 
 <div class="blog-post-content">

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="animated fadeIn">
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
@@ -23,6 +23,9 @@
         </mat-form-field>
       </p>
       <button type="submit" mat-raised-button >Login</button>
+      <a  routerLink="/forgot-password">Olvidaste tu contraseña?</a>
+      <a class="regresar" routerLink="/home">Regresar</a>
     </form>
+    
   </mat-card-content>
 </mat-card>

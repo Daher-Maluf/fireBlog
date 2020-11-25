@@ -16,7 +16,9 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
   }
-
+  resetPassword(email: string){
+   return this.afAuth.auth.sendPasswordResetEmail(email);
+  }
   loginByEmail(user: UserI) {
     const { email, password } = user;
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
