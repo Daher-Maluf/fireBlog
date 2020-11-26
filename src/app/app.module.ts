@@ -31,6 +31,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
 import { HomeModule } from './components/pages/home/home.module';
 import { BuscarRoutingModule } from './components/pages/buscar/buscar-routing.module';
 import { BuscarModule } from './components/pages/buscar/buscar.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { BuscarModule } from './components/pages/buscar/buscar.module';
     ReactiveFormsModule,
     EditPostModule,
     FlexLayoutModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [

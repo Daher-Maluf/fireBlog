@@ -29,23 +29,17 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.posts$ = this.postSvc.getAllPosts();
+    // this.posts$ = this.postSvc.getAllPosts();
+  this.ts.loadItems();
+    
 
   }
+ 
 
   buscarDatos(){
     this.ts.col$('posts').subscribe(posts =>  console.log(posts));
   }
 
-  // loadPost() {
-  //   this.cargado = false;
-  //   this.posts = this.postSvc.getPagPost(this.lastVisible, 6);
-  //   console.log('load post', this.posts);
-  //   setTimeout(() => {
-  //     this.cargado = true;
-  //   }, 1000);
-
-  // }
 
 
 }

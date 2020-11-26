@@ -43,4 +43,16 @@ export class TagsService {
 
 
   }
+
+  loadItems() {
+    this.afs.collection('posts', ref => ref
+      .limit(3)
+      .orderBy('titlePost', 'desc')
+    ).snapshotChanges()
+      .subscribe(response => {
+        console.log(response);
+      }, error => {
+        console.log('error');
+      });
+  }
 }
