@@ -27,7 +27,13 @@
   
   <mat-card  class="post-card  " *ngFor="let post of posts ">
     <app-post [post]="post"></app-post>
+    
   </mat-card>
+</div>
+<div >
+  <button mat-raised-button color="accent" (click)="prevPage()"
+      [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button>
+  <button mat-raised-button color="accent"  (click)="nextPage()" [disabled]="disable_next">Next</button>
 </div>
 <ng-template #loading>
   <div class="container-spinner">
