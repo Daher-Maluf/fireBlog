@@ -3,17 +3,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostI } from '../../../shared/models/post.interface';
 import { PostService } from '../post.service';
 
+
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent implements OnInit {
+
+
   private image: any;
   editorStyle = {
     heigth: '300px;'
   };
-  constructor(private postSvc: PostService) { }
+  constructor(private postSvc: PostService) {
+
+
+  }
 
   public newPostForm = new FormGroup({
     titlePost: new FormControl('', Validators.required),

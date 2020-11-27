@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
 import {of, from} from 'rxjs';
 import { TagsService } from '../tags/tags.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -58,20 +59,30 @@ export class HomeComponent implements OnInit {
     this.firestore.collection('posts', ref => ref
       .limit(3)
       .orderBy('tagsPost', 'desc')
-    ).snapshotChanges()
+    ).snapshotChanges().pipe(
+      
+      map(value => 
+        value.map(a => {
+          const data = a.payload.doc.data() as PostI;
+          const id = a.payload.doc.id;
+          return {id,...data}
+          console.log(value);
+        }))
+        
+    )
       .subscribe(response => {
         console.log(response);
         if (!response.length) {
           console.log('No Data Available');
           return false;
         }
-        this.firstInResponse = response[0].payload.doc;
-        this.lastInResponse = response[response.length - 1].payload.doc;
+        this.firstInResponse = response[0];
+        this.lastInResponse = response[response.length - 1];
 
         this.posts$ = of(this.postData = []);
         
         for (const item of response) {
-          this.postData.push(item.payload.doc.data());
+          this.postData.push(item)
           
         }
 
@@ -99,10 +110,15 @@ export class HomeComponent implements OnInit {
         this.lastInResponse = response.docs[response.docs.length - 1];
         
         this.posts$ = of(this.postData = []);
-        
-        for (let item of response.docs) {
-          this.postData.push(item.data());
-        }
+        response.forEach(snaphijo => {
+          this.postData.push({
+            id: snaphijo.id,
+            ...snaphijo.data()
+          })
+        });
+        console.log(this.postData);
+
+      
 
         //Maintaing page no.
         this.pagination_clicked_count--;
@@ -132,13 +148,18 @@ export class HomeComponent implements OnInit {
         }
 
         this.firstInResponse = response.docs[0];
-
+        
         this.lastInResponse = response.docs[response.docs.length - 1];
         this.posts$ = of(this.postData = []);
+        response.forEach(snaphijo => {
+          this.postData.push({
+            id: snaphijo.id,
+            ...snaphijo.data()
+          })
+        });
+        console.log(this.postData);
+
        
-        for (let item of response.docs) {
-          this.postData.push(item.data());
-        }
 
         this.pagination_clicked_count++;
 

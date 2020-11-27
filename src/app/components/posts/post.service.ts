@@ -37,27 +37,7 @@ export class PostService {
         )
       );
   }
-  public getPagPost(lastVisible: any, limit: number) {
-
-    const postsCollection: AngularFirestoreCollection<PostI> =
-    this.afs.collection<PostI>('posts');
-    const postRef = postsCollection.ref;
-    const result: PostI[] = [];
-
-    postRef.orderBy('titlePost', 'desc').startAfter(lastVisible).limit(limit)
-    .get().then(snap => {
-
-      snap.forEach(doc => {
-        const post = doc.data() as PostI;
-        result.push(post);
-
-      });
-    }).catch(error => {
-      console.log('error', error);
-
-    });
-    return result;
-  }
+ 
 
 
   public getOnePost(id: PostI): Observable<PostI> {
@@ -76,7 +56,9 @@ export class PostService {
     }
   }
 
-  public preAddAndUpdatePost(post: PostI, image: FileI): void {
+  public preAddAndUpdatePost(post: PostI, image: FileI,): void {
+  
+    
     this.uploadImage(post, image);
   }
 
