@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
  placeValue: string;
 
  // Data object for listing items
- tableData: any[] = [];
+ postData: any[] = [];
 
  // Save first document in snapshot of items received
  firstInResponse: any = [];
@@ -45,21 +45,22 @@ export class HomeComponent implements OnInit {
     private postSvc: PostService,
     private ts: TagsService
      ) {
-    this.loadItems();
+    
    }
 
   ngOnInit() {
     // this.posts$ = this.postSvc.getAllPosts();
 
-
+    this.loadItems();
 
   }
   loadItems() {
     this.firestore.collection('posts', ref => ref
-      .limit(2)
+      .limit(3)
       .orderBy('tagsPost', 'desc')
     ).snapshotChanges()
       .subscribe(response => {
+        console.log(response);
         if (!response.length) {
           console.log('No Data Available');
           return false;
@@ -67,9 +68,10 @@ export class HomeComponent implements OnInit {
         this.firstInResponse = response[0].payload.doc;
         this.lastInResponse = response[response.length - 1].payload.doc;
 
-        this.posts$ = of(this.tableData = []);
+        this.posts$ = of(this.postData = []);
+        
         for (const item of response) {
-          this.tableData.push(item.payload.doc.data());
+          this.postData.push(item.payload.doc.data());
           
         }
 
@@ -90,15 +92,16 @@ export class HomeComponent implements OnInit {
       .orderBy('tagsPost', 'desc')
       .startAt(this.get_prev_startAt())
       .endBefore(this.firstInResponse)
-      .limit(2)
+      .limit(3)
     ).get()
       .subscribe(response => {
         this.firstInResponse = response.docs[0];
         this.lastInResponse = response.docs[response.docs.length - 1];
         
-        this.posts$ = of(this.tableData = []);
+        this.posts$ = of(this.postData = []);
+        
         for (let item of response.docs) {
-          this.tableData.push(item.data());
+          this.postData.push(item.data());
         }
 
         //Maintaing page no.
@@ -117,7 +120,7 @@ export class HomeComponent implements OnInit {
   nextPage() {
     this.disable_next = true;
     this.firestore.collection('posts', ref => ref
-      .limit(2)
+      .limit(3)
       .orderBy('tagsPost', 'desc')
       .startAfter(this.lastInResponse)
     ).get()
@@ -131,9 +134,10 @@ export class HomeComponent implements OnInit {
         this.firstInResponse = response.docs[0];
 
         this.lastInResponse = response.docs[response.docs.length - 1];
-        this.posts$=of(this.tableData = []);
+        this.posts$ = of(this.postData = []);
+       
         for (let item of response.docs) {
-          this.tableData.push(item.data());
+          this.postData.push(item.data());
         }
 
         this.pagination_clicked_count++;

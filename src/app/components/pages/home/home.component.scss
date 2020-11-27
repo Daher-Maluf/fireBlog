@@ -19,6 +19,7 @@
     border-radius: 8px;
     background: $card_background;
     color: $default_white;
+    margin-bottom: 20px;
     
     // padding: 20px;
     font-size: 150%;
@@ -57,6 +58,7 @@ color: #E1E0E3;
       border-radius: 8px;
       background: $card_background;
       color: $default_white;
+      margin-bottom: 20px;
       
       // padding: 20px;
       font-size: 150%;
@@ -85,13 +87,18 @@ color: #E1E0E3;
       box-shadow: 0 0 30px #020204;
       background: $card_background;
       color: $default_white;
+      margin-bottom: 40px;
       
       // padding: 20px;
       font-size: 150%;
     }
+    
   }
  
-  
+  button{
+    color: #fff;
+    background-color: #9984D5;
+  }
 }
 
 
