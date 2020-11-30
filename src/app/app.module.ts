@@ -11,7 +11,7 @@ import { ToolbarComponent } from './shared/components/toolbar/toolbar.component'
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuillModule } from 'ngx-quill';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 /* Firebase */
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -59,6 +59,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HomeModule,
     MaterialModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     EditPostModule,
     FlexLayoutModule,
     QuillModule.forRoot(),

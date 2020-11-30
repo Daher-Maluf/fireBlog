@@ -1,11 +1,9 @@
 import { PostService } from './../../posts/post.service';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
-import {of, from} from 'rxjs';
 import { TagsService } from '../tags/tags.service';
-import { map } from 'rxjs/operators';
+
 
 
 @Component({
@@ -14,188 +12,43 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
- // Models for Input fields
- nameValue: string;
- placeValue: string;
 
- // Data object for listing items
- postData: any[] = [];
-
- // Save first document in snapshot of items received
- firstInResponse: any = [];
-
- // Save last document in snapshot of items received
- lastInResponse: any = [];
-
- // Keep the array of first document of previous pages
- prev_strt_at: any = [];
-
- // Maintain the count of clicks on Next Prev button
- pagination_clicked_count = 0;
-
- // Disable next and prev buttons
- disable_next = false;
- disable_prev = false;
   public posts$: Observable<any[]>;
+  data: Array<PostI>;
+  totalRecords: number;
+  page = 1;
 
 
 
 
   constructor(
-    private firestore: AngularFirestore,
     private postSvc: PostService,
     private ts: TagsService
      ) {
-    
+      { this.data = new Array<any>(); }
    }
 
   ngOnInit() {
     // this.posts$ = this.postSvc.getAllPosts();
+    this.loadData();
 
-    this.loadItems();
 
   }
-  loadItems() {
-    this.firestore.collection('posts', ref => ref
-      .limit(3)
-      .orderBy('tagsPost', 'desc')
-    ).snapshotChanges().pipe(
-      
-      map(value => 
-        value.map(a => {
-          const data = a.payload.doc.data() as PostI;
-          const id = a.payload.doc.id;
-          return {id,...data}
-          console.log(value);
-        }))
-        
-    )
-      .subscribe(response => {
-        console.log(response);
-        if (!response.length) {
-          console.log('No Data Available');
-          return false;
-        }
-        this.firstInResponse = response[0];
-        this.lastInResponse = response[response.length - 1];
 
-        this.posts$ = of(this.postData = []);
-        
-        for (const item of response) {
-          this.postData.push(item)
-          
-        }
 
-        // Initialize values
-        this.prev_strt_at = [];
-        this.pagination_clicked_count = 0;
-        this.disable_next = false;
-        this.disable_prev = false;
-
-        // Push first item to use for Previous action
-        this.push_prev_startAt(this.firstInResponse);
-      }, error => {
-      });
-  }
-  prevPage() {
-    this.disable_prev = true;
-    this.firestore.collection('posts', ref => ref
-      .orderBy('tagsPost', 'desc')
-      .startAt(this.get_prev_startAt())
-      .endBefore(this.firstInResponse)
-      .limit(3)
-    ).get()
-      .subscribe(response => {
-        this.firstInResponse = response.docs[0];
-        this.lastInResponse = response.docs[response.docs.length - 1];
-        
-        this.posts$ = of(this.postData = []);
-        response.forEach(snaphijo => {
-          this.postData.push({
-            id: snaphijo.id,
-            ...snaphijo.data()
-          })
-        });
-        console.log(this.postData);
-
-      
-
-        //Maintaing page no.
-        this.pagination_clicked_count--;
-
-        //Pop not required value in array
-        this.pop_prev_startAt(this.firstInResponse);
-
-        //Enable buttons again
-        this.disable_prev = false;
-        this.disable_next = false;
-      }, error => {
-        this.disable_prev = false;
-      });
-  }
-  nextPage() {
-    this.disable_next = true;
-    this.firestore.collection('posts', ref => ref
-      .limit(3)
-      .orderBy('tagsPost', 'desc')
-      .startAfter(this.lastInResponse)
-    ).get()
-      .subscribe(response => {
-
-        if (!response.docs.length) {
-          this.disable_next = true;
-          return;
-        }
-
-        this.firstInResponse = response.docs[0];
-        
-        this.lastInResponse = response.docs[response.docs.length - 1];
-        this.posts$ = of(this.postData = []);
-        response.forEach(snaphijo => {
-          this.postData.push({
-            id: snaphijo.id,
-            ...snaphijo.data()
-          })
-        });
-        console.log(this.postData);
-
-       
-
-        this.pagination_clicked_count++;
-
-        this.push_prev_startAt(this.firstInResponse);
-
-        this.disable_next = false;
-      }, error => {
-        this.disable_next = false;
-      });
-  }
-//  add  document
-  push_prev_startAt(prev_first_doc) {
-    this.prev_strt_at.push(prev_first_doc);
-  }
-
-  // Remove not required document
-  pop_prev_startAt(prev_first_doc) {
-    this.prev_strt_at.forEach(element => {
-      if (prev_first_doc.data().id == element.data().id) {
-        element = null;
-      }
+  loadData() {
+    this.postSvc.getAllPosts().subscribe((data) => {
+      console.log(data);
+      this.data = data;
+      this.totalRecords = data.length;
+      console.log(this.page);
     });
   }
 
-  // Return the Doc rem where previous page will startAt
-  get_prev_startAt() {
-    if (this.prev_strt_at.length > (this.pagination_clicked_count + 1)) {
-      this.prev_strt_at.splice(this.prev_strt_at.length - 2, this.prev_strt_at.length - 1);
-    }
-    return this.prev_strt_at[this.pagination_clicked_count - 1];
-  }
 
 
-  
 
- 
+
 
   buscarDatos() {
     this.ts.col$('posts').subscribe(posts =>  console.log(posts));

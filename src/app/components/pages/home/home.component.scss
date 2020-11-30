@@ -3,6 +3,8 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(1,100%);
+
+ 
   
   
   grid-row-gap: 20px;
@@ -75,6 +77,7 @@ color: #E1E0E3;
     grid-column-gap: 40px;
     grid-row-gap: 20px;
     justify-content: center;
+    
     .post-card {
       &:hover {
         opacity: 0.9;
@@ -99,7 +102,10 @@ color: #E1E0E3;
     color: #fff;
     background-color: #9984D5;
   }
+  
 }
 
-
-
+.pagination-previous,.pagination-next{
+  display: inline-block;
+  font-weight: bold;
+}

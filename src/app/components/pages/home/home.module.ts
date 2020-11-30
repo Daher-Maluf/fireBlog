@@ -11,12 +11,14 @@ import { HeroHeaderComponent } from '../../../shared/components/hero-header/hero
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SpinnerComponent } from 'src/app/shared/spinner/spinner.component';
 import { QuillModule } from 'ngx-quill';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [HomeComponent, PostComponent, HeroHeaderComponent, SpinnerComponent],
   imports: [
     CommonModule,
      HomeRoutingModule,
+     NgxPaginationModule,
       MaterialModule,
        FlexLayoutModule,
         ScrollingModule,

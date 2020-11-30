@@ -23,18 +23,32 @@
 <h2 class="blog-section-title">Blog Posts ↓</h2>
 
 
-<div class="container animated fadeIn"  *ngIf="posts$ | async as posts; else loading">
+<div class="container animated fadeIn"  >
   
-  <mat-card  class="post-card  " *ngFor="let post of posts ">
+  <mat-card  class="post-card  " *ngFor="let post of data | paginate: {id: 'listing_pagination', itemsPerPage: 3, currentPage: page, totalItems: totalRecords } ">
     <app-post [post]="post"></app-post>
     
   </mat-card>
+  
 </div>
-<div fxLayout="row" fxLayoutAlign="space-between">
+<div >
+  <pagination-controls 
+  
+  class="my-pagination" 
+  id="listing_pagination"
+  previousLabel=""
+  nextLabel=""
+  autoHide="autoHide"
+  (pageChange)="page = $event"
+  maxSize="6"></pagination-controls>
+  
+</div>
+
+<!-- <div fxLayout="row" fxLayoutAlign="space-between">
   <button class="prev" mat-raised-button  (click)="prevPage()"
       [disabled]="disable_prev || !(pagination_clicked_count>0)">prev</button>
   <button class="next" mat-raised-button   (click)="nextPage()" [disabled]="disable_next">next</button>
-</div>
+</div> -->
 <ng-template #loading>
   <div class="container-spinner">
     <app-spinner></app-spinner>
