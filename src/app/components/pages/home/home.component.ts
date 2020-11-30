@@ -1,6 +1,6 @@
 import { PostService } from './../../posts/post.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
 import { TagsService } from '../tags/tags.service';
 
@@ -13,7 +13,7 @@ import { TagsService } from '../tags/tags.service';
 })
 export class HomeComponent implements OnInit {
 
-  public posts$: Observable<any[]>;
+  public posts$: Observable<PostI[]>;
   data: Array<PostI>;
   totalRecords: number;
   page = 1;
@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
     private postSvc: PostService,
     private ts: TagsService
      ) {
-      { this.data = new Array<any>(); }
+       this.data = new Array<any>();
+
+
    }
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.data = data;
       this.totalRecords = data.length;
-      console.log(this.page);
+      this.posts$ = of(this.data);
     });
   }
 
