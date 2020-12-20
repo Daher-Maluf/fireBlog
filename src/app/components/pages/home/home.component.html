@@ -25,7 +25,7 @@
 
 <div class="container animated fadeIn" *ngIf="posts$ | async as posts; else loading" >
   
-  <mat-card  class="post-card  " *ngFor="let post of posts | paginate: {id: 'listing_pagination', itemsPerPage: 3, currentPage: page, totalItems: totalRecords } ">
+  <mat-card  class="post-card  " *ngFor="let post of posts | paginate: {id: 'listing_pagination', itemsPerPage: 6, currentPage: page, totalItems: totalRecords } ">
     <app-post [post]="post"></app-post>
     
   </mat-card>
