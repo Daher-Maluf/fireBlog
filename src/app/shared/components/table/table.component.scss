@@ -24,3 +24,21 @@ table {
     cursor: pointer;
   }
 }
+
+
+
+
+@media screen and (max-width: 448px) {
+  .container-btn-new{
+    display: flex;
+    justify-content: flex-start;
+    width: 700px;;
+    margin: 1rem -0.6rem;
+  button {
+    width: 25%;
+    color: $default_white;
+    background: $button_purpure;
+    cursor: pointer;
+  }
+  }
+ }
