@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import * as firebase from 'firebase';
 import { map, finalize } from 'rxjs/operators';
 import { PostI } from '../../shared/models/post.interface';
 import { FileI } from '../../shared/models/file.interface';
@@ -99,7 +100,11 @@ export class PostService {
 
   }
 
-
+  public getTime() {
+    const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    return timestamp;
+  }
+   
 
 
   private uploadImage(post: PostI, image: FileI) {

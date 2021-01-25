@@ -1,5 +1,5 @@
 <mat-card class="animated fadeIn">
-  <mat-card-title>Login</mat-card-title>
+  <mat-card-title>Ingresar</mat-card-title>
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
       <p>
@@ -7,7 +7,7 @@
           <input
             type="text"
             matInput
-            placeholder="Username"
+            placeholder="Usuario"
             formControlName="email"
           />
         </mat-form-field>
@@ -17,12 +17,12 @@
           <input
             type="password"
             matInput
-            placeholder="Password"
+            placeholder="Contraseña"
             formControlName="password"
           />
         </mat-form-field>
       </p>
-      <button type="submit" mat-raised-button >Login</button>
+      <button type="submit" mat-raised-button >Iniciar Sesión</button>
       <a  routerLink="/forgot-password">Olvidaste tu contraseña?</a>
       <a class="regresar" routerLink="/home">Regresar</a>
     </form>

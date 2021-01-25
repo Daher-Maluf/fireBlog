@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // this.posts$ = this.postSvc.getAllPosts();
     this.loadData();
-
+    this.postSvc.getTime();
 
   }
 
