@@ -27,11 +27,14 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 
+
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 import { HomeModule } from './components/pages/home/home.module';
 import { BuscarRoutingModule } from './components/pages/buscar/buscar-routing.module';
 import { BuscarModule } from './components/pages/buscar/buscar.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     DetailsPostComponent,
     FooterComponent,
     
-
   ],
   imports: [
     BrowserModule,

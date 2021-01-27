@@ -1,11 +1,10 @@
-import * as firebase from 'firebase/app';
-import Timestamp = firebase.firestore.Timestamp;
+import { Timestamp } from '@firebase/firestore-types';
 export interface PostI {
   titlePost: string;
   contentPost: string;
   imagePost?: any;
   id?: string;
-  createdAt?: Timestamp;
+  fecha?: Timestamp;
   tagsPost: string;
   fileRef?: string;
 }

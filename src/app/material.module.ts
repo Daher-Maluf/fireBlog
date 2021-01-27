@@ -12,11 +12,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+// import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 const myModule = [
   MatCardModule,
@@ -25,6 +30,8 @@ const myModule = [
   MatToolbarModule,
   MatIconModule,
   MatSidenavModule,
+  // MatMomentDateModule,
+  MatNativeDateModule,
   MatListModule,
   MatProgressSpinnerModule,
   MatDividerModule,
@@ -35,12 +42,24 @@ const myModule = [
   MatPaginatorModule,
   MatSortModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDatepickerModule,
 ];
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, myModule],
-  exports: [myModule]
+  exports: [myModule],
+  // providers: [
+  //   {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, 
+  //     useValue: {useUtc: true, strict: true}
+      
+  //   }
+  // 
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule 
+  ]
+  
 })
 export class MaterialModule { }

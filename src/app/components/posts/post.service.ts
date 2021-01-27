@@ -7,6 +7,7 @@ import { PostI } from '../../shared/models/post.interface';
 import { FileI } from '../../shared/models/file.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -89,7 +90,9 @@ export class PostService {
       contentPost: post.contentPost,
       imagePost: this.downloadURL,
       fileRef: this.filePath,
-      tagsPost: post.tagsPost
+      tagsPost: post.tagsPost,
+      fecha: post.fecha
+      
     };
 
     if (post.id) {

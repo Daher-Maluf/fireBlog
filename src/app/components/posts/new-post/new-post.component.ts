@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { map } from 'rxjs/operators';
 import { PostI } from '../../../shared/models/post.interface';
 import { PostService } from '../post.service';
+
+
+
+
 
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.scss']
+  styleUrls: ['./new-post.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NewPostComponent implements OnInit {
 
+ 
 
   private image: any;
   editorStyle = {
@@ -24,11 +31,14 @@ export class NewPostComponent implements OnInit {
   public newPostForm = new FormGroup({
     titlePost: new FormControl('', Validators.required),
     contentPost: new FormControl('', Validators.required),
+    fecha: new FormControl('', Validators.required),
     tagsPost: new FormControl('', Validators.required),
     imagePost: new FormControl('', Validators.required),
   });
 
   ngOnInit() {
+    
+    
   }
 
   addNewPost(data: PostI) {
