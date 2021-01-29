@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public appName = 'CoderNinja';
+  public appName = 'techBlog';
   @Input() deviceXs: boolean;
   @Input() deviceSm: boolean;
   @Input() deviceMd: boolean;

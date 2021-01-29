@@ -56,7 +56,11 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
     ['link', 'image', 'video']                         // link and image, video
           ]
         }})],
-  exports: [PostComponent, SpinnerComponent],
+  exports: [
+    PostComponent,
+    SpinnerComponent, 
+    TransformarfechaPipe
+  ],
   providers:[
     {
       provide: LOCALE_ID,

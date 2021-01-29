@@ -16,6 +16,7 @@
 <article class="post" *ngIf="post$ | async as post; else loading">
 <div class="header">
   <h1 class="post-title" [ngStyle.xs]="{'font-size.px': 60}">{{ post.titlePost }}</h1>
+  <h6>{{ post.fecha | transformarfecha }}</h6>
   
 </div>
 
