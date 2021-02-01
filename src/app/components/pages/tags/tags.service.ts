@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { type } from 'os';
 import { Observable } from 'rxjs';
 import {  map } from 'rxjs/operators';
-import { PostI } from '../../../shared/models/post.interface';
+import { Articulo } from '../../../shared/models/post.interface';
 
 type collectionPredicate<T> = string | AngularFirestoreCollection;
 
@@ -11,10 +10,9 @@ type collectionPredicate<T> = string | AngularFirestoreCollection;
   providedIn: 'root'
 })
 export class TagsService {
-  private postsCollection: AngularFirestoreCollection<PostI>;
-
+  private postsCollection: AngularFirestoreCollection<Articulo>;
   constructor(private afs: AngularFirestore) {
-    this.postsCollection = afs.collection<PostI>('posts');
+    this.postsCollection = afs.collection<Articulo>('posts');
    }
 
    

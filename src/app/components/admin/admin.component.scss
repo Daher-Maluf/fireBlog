@@ -1,7 +1,7 @@
 @import "src/scss/variables";
 .navbar {
   position: sticky;
-  background-color: #000000;
+  background-color: #0A041A;
   
   top: 0;
   z-index: 1000;
@@ -11,6 +11,9 @@
 }
 mat-icon {
   color: #9984D5;
+}
+i .fas .fa-envelope-open-tex {
+  padding-bottom: 20px;
 }
 
 mat-sidenav {

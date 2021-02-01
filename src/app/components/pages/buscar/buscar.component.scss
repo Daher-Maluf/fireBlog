@@ -1,4 +1,5 @@
 @import "src/scss/variables";
+
 .container{
   padding: 0;
   display: grid;
@@ -26,24 +27,45 @@
 }
   
 
-//   .container .post-card{
-//     grid-column: 1/-1;
-//     margin: 0 32px;
-//     height: 400px;
- 
-
-// }
-
 .blog-section-title {
 color: #E1E0E3;
 
 }
 @media(min-width: 640px){
+
   .container{
     display: grid;
     grid-template-columns: repeat(2,47%);
     grid-column-gap: 40px;
     grid-row-gap: 20px;
+    #success-box{
+      left: 35%;
+      width: 36%;
+      height: 80%;
+      h1 {
+        font-size: 1.2em;
+        font-weight: 100;
+        letter-spacing: 3px;
+        padding-top: 5px;
+        color: $white;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+      }
+    }
+    #contenedor{
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      width: 700px;
+      height: 300px;
+    }
+    p {
+      margin-top: -5px;
+      font-size: 1em;
+      font-weight: 100;
+      color: darken($dark, 10%);
+      letter-spacing: 1px;
+    }
     .post-card {
       &:hover {
         opacity: 0.8;
@@ -64,8 +86,36 @@ color: #E1E0E3;
   }
 }
 @media(min-width: 1010px){
-  .container {
   
+  .container {
+  #success-box{
+    left: 37%;
+    width: 40%;
+    height: 100%;
+    h1 {
+      font-size: 1.2em;
+      font-weight: 100;
+      letter-spacing: 3px;
+      padding-top: 5px;
+      color: $white;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+    }
+  }
+  #contenedor{
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 1000px;
+    height: 350px;
+  }
+  p {
+    margin-top: -5px;
+    font-size: 1em;
+    font-weight: 100;
+    color: darken($dark, 10%);
+    letter-spacing: 1px;
+  }
     //  margin: 1.6em auto;
     display: grid;
    
@@ -94,5 +144,172 @@ color: #E1E0E3;
   
 }
 
+#contenedor{
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 700px;
+  height: 250px;
+}
 
+#contenedor h1 {
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 3px;
+  padding-top: 5px;
+  color: $white;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.green {
+  color: darken($secondary, 20%);
+}
+
+
+
+.alert {
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+p {
+  margin-top: -5px;
+  font-size: 0.7em;
+  font-weight: 100;
+  color: darken($dark, 10%);
+  letter-spacing: 1px;
+}
+
+button, .dot {
+  cursor: pointer;
+}
+
+#success-box {
+  position: absolute;
+  width: 35%;
+  height: 100%;
+  left: 5%;
+  background: linear-gradient(to bottom right, $success 40%, $secondary 100%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba($gray, 10%);
+  perspective: 40px;
+}
+
+
+
+
+
+
+.face {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: $white;
+  border-radius: 50%;
+  border: 1px solid $dark;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+  // animation: bounce 1s ease-in infinite;
+  animation: roll 3s ease-in-out infinite;
+}
+
+
+
+.eye {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: $dark;
+  border-radius: 50%;
+  top: 40%;
+  left: 20%;
+}
+
+.right {
+  left: 68%;
+}
+
+.mouth {
+  position:absolute;
+  top: 43%;
+  left: 41%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+
+.sad {
+  top: 49%;
+  border: 2px solid;
+  border-color: $dark transparent transparent $dark;
+  transform: rotate(45deg);
+}
+
+.shadow {
+  position: absolute;
+  width: 21%;
+  height: 3%;
+  opacity: .5;
+  background: $dark;
+  left: 40%;
+  top: 43%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.scale {
+  animation: scale 1s ease-in infinite;
+}
+.move {
+  animation: move 3s ease-in-out infinite;
+}
+
+
+.message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 40%;
+  top: 47%;
+}
+
+
+
+
+
+@keyframes scale {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+    transform: rotate(168deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 25%;
+  }
+}
 

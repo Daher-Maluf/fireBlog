@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
-import { PostI } from '../../../shared/models/post.interface';
+import { Articulo } from '../../../shared/models/post.interface';
 
 @Component({
   selector: 'app-details-post',
@@ -10,7 +10,7 @@ import { PostI } from '../../../shared/models/post.interface';
   styleUrls: ['./details-post.component.scss']
 })
 export class DetailsPostComponent implements OnInit {
-  public post$: Observable<PostI>;
+  public post$: Observable<Articulo>;
   
 
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }

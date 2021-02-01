@@ -1,19 +1,5 @@
-<!-- <div class="container" *ngIf="post$ | async as post; else loading">
-  <mat-card class="post-card">
-    <img matCardImage class="align-center" [src]="post.imagePost" />
-    <mat-card-content>
-      <mat-card-title>
-        {{ post.titlePost }}
-      </mat-card-title>
-      <p class="content">
-        {{ post.contentPost }}
-      </p>
-    </mat-card-content>
-  </mat-card>
-</div> -->
 
-
-<article class="post" *ngIf="post$ | async as post; else loading">
+<article class="post container animated fadeIn" *ngIf="post$ | async as post; else loading">
 <div class="header">
   <h1 class="post-title" [ngStyle.xs]="{'font-size.px': 60}">{{ post.titlePost }}</h1>
   <h6>{{ post.fecha | transformarfecha }}</h6>

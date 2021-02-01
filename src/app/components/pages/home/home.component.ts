@@ -1,7 +1,7 @@
 import { PostService } from './../../posts/post.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { PostI } from '../../../shared/models/post.interface';
+import { Articulo } from '../../../shared/models/post.interface';
 import { TagsService } from '../tags/tags.service';
 
 
@@ -13,8 +13,8 @@ import { TagsService } from '../tags/tags.service';
 })
 export class HomeComponent implements OnInit {
 
-  public posts$: Observable<PostI[]>;
-  data: Array<PostI>;
+  public posts$: Observable<Articulo[]>;
+  data: Array<Articulo>;
   totalRecords: number;
   page = 1;
 

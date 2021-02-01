@@ -1,7 +1,6 @@
 import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { map } from 'rxjs/operators';
-import { PostI } from '../../../shared/models/post.interface';
+import { Articulo } from '../../../shared/models/post.interface';
 import { PostService } from '../post.service';
 
 
@@ -41,7 +40,7 @@ export class NewPostComponent implements OnInit {
     
   }
 
-  addNewPost(data: PostI) {
+  addNewPost(data: Articulo) {
     console.log('New post', data);
     this.postSvc.preAddAndUpdatePost(data, this.image);
   }

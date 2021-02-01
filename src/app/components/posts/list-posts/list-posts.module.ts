@@ -5,9 +5,11 @@ import { ListPostsRoutingModule } from './list-posts-routing.module';
 import { ListPostsComponent } from './list-posts.component';
 import { MaterialModule } from '../../../material.module';
 import { TableComponent } from '../../../shared/components/table/table.component';
+import { HomeModule } from '../../pages/home/home.module';
+
 
 @NgModule({
   declarations: [ListPostsComponent, TableComponent],
-  imports: [CommonModule, ListPostsRoutingModule, MaterialModule]
+  imports: [CommonModule, ListPostsRoutingModule, MaterialModule, HomeModule]
 })
 export class ListPostsModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of} from 'rxjs';
-import { PostI } from 'src/app/shared/models/post.interface';
+import { Articulo } from 'src/app/shared/models/post.interface';
 import { PostService } from '../../posts/post.service';
 
 
@@ -13,8 +13,8 @@ import { PostService } from '../../posts/post.service';
 export class BuscarComponent implements OnInit {
 
   public termino = '';
-  public posts: PostI [] = [];
-  public busquedas$: Observable<PostI[]>;
+  public posts: Articulo [] = [];
+  public busquedas$: Observable<Articulo[]>;
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -23,13 +23,9 @@ export class BuscarComponent implements OnInit {
   ngOnInit(): void {
 
       this.activatedRoute.params.subscribe( params => {
-        console.log(params.termino);
-
+       
         this.termino = params.termino;
-      // TODO LLAMAR SERVICIO
-
-
-
+    
         this.buscarPosts(params.termino);
 
     });
@@ -40,7 +36,6 @@ export class BuscarComponent implements OnInit {
 
   buscarPosts(termino: string) {
     this.busquedas$ = of(this.posts = []);
-    console.log(this.busquedas$);
     termino = termino.toLowerCase();
     this.postSvc.getAllPosts()
    .subscribe(resp => {
@@ -50,7 +45,7 @@ export class BuscarComponent implements OnInit {
        if (e.titlePost.toLowerCase().indexOf( termino ) >= 0) {
 
           this.posts.push(e);
-          console.log(e);
+          
 
        }
      });

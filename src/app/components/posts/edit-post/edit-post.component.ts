@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PostI } from '../../../shared/models/post.interface';
+import { Articulo } from '../../../shared/models/post.interface';
 import { PostService } from './../post.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class EditPostComponent implements OnInit {
   private image: any;
   private imageOriginal: any;
 
-  @Input() post: PostI;
+  @Input() post: Articulo;
 
   constructor(private postSvc: PostService) { }
 
@@ -30,7 +30,7 @@ export class EditPostComponent implements OnInit {
     this.initValuesForm();
   }
 
-  editPost(post: PostI) {
+  editPost(post: Articulo) {
     if (this.image === this.imageOriginal) {
       post.imagePost = this.imageOriginal;
       this.postSvc.editPostById(post);

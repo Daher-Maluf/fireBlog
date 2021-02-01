@@ -36,6 +36,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     EditPostModule,
     FlexLayoutModule,
     QuillModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    
 
   ],
   providers: [

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { promise } from 'protractor';
 import { Observable } from 'rxjs';
-import { PostI } from 'src/app/shared/models/post.interface';
+import { Articulo } from 'src/app/shared/models/post.interface';
 import { TagsService } from '../tags.service';
 
 @Component({
@@ -11,8 +10,8 @@ import { TagsService } from '../tags.service';
   styleUrls: ['./tags-detail.component.scss']
 })
 export class TagsDetailComponent implements OnInit {
-  public categoryArr: PostI[] = [];
-  postscat$: Observable<PostI[]>;
+  public categoryArr: Articulo[] = [];
+  postscat$: Observable<Articulo[]>;
 
 
   constructor(
@@ -23,8 +22,6 @@ export class TagsDetailComponent implements OnInit {
   async ngOnInit() {
 
     const category = this.route.snapshot.params.category;
-    console.log(category);
-
     this.postscat$ = this.ts.getPostByCategory(category);
 
   }

@@ -1,5 +1,6 @@
 import { Timestamp } from '@firebase/firestore-types';
-export interface PostI {
+
+export interface Articulo {
   titlePost: string;
   contentPost: string;
   imagePost?: any;
