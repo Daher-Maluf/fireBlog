@@ -33,7 +33,7 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
        FlexLayoutModule,
         ScrollingModule,
          QuillModule.forRoot({modules: {
-          syntax: true,
+          syntax: false,
           toolbar: [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
@@ -53,7 +53,7 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
 
     ['clean'],                                         // remove formatting button
 
-    ['link', 'image', 'video']                         // link and image, video
+    ['link']                         // link and image, video
           ]
         }})],
   exports: [
