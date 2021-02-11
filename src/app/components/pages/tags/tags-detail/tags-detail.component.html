@@ -1,7 +1,7 @@
 
 
     <div  class="container animated fadeIn" *ngIf="postscat$ | async as posts; else loading"  >
-      <div id="contenedor" class="animated fadeIn">
+      
         <div id="success-box" *ngIf="posts.length == 0">
            
           <div class="face">
@@ -13,7 +13,7 @@
           <div class="message"><h1 class="alert">Lo Siento!</h1><p>No hay resultados para tu busqueda!</p></div>
          
         </div>
-       </div>
+     
       <mat-card  class="post-card  " *ngFor="let post of posts ">
         <app-post [post]="post"></app-post>
       </mat-card>

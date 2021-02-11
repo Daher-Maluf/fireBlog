@@ -26,7 +26,9 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
-
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { ShareButtonsConfig} from 'ngx-sharebuttons';
 
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 import { HomeModule } from './components/pages/home/home.module';
@@ -34,6 +36,14 @@ import { BuscarRoutingModule } from './components/pages/buscar/buscar-routing.mo
 import { BuscarModule } from './components/pages/buscar/buscar.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+const customConfig: ShareButtonsConfig = {
+  include: ['facebook','whatsapp','twitter','reddit','copy' ],
+  theme: 'circles-dark',
+  debug: true,
+  gaTracking: true,
+  twitterAccount: 'twitterUsername',
+  autoSetMeta: false,
+}
 
 
 
@@ -60,6 +70,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     NewPostModule,
     BuscarModule,
     HomeModule,
+    ShareButtonsModule.withConfig(customConfig),
+    ShareIconsModule,
     MaterialModule,
     ReactiveFormsModule,
     NgxPaginationModule,

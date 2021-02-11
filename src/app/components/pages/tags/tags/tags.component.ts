@@ -12,9 +12,6 @@ export class TagsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCategoria(cat:string){
-    console.log(cat);
-    
-  }
+  
 
 }

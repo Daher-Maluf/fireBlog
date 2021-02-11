@@ -1,6 +1,9 @@
 @import "./scss/reset";
 @import "./scss/variables";
 @import"./scss/_categorychips";
+@import '~ngx-sharebuttons/themes/material/material-dark-theme';
+@import '~ngx-sharebuttons/themes/modern/modern-light-theme';
+@import '~ngx-sharebuttons/themes/circles/circles-dark-theme';
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&family=Nunito:wght@400;700;900&family=Poppins:wght@400;700&display=swap');
 body {
   margin: 0;

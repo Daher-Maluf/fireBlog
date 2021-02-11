@@ -2,7 +2,9 @@ import { PostComponent } from './../../posts/post/post.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-
+// import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+// import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+// import { ShareButtonsConfig} from 'ngx-sharebuttons';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from '../../../material.module';
@@ -18,6 +20,15 @@ import { QuillModule } from 'ngx-quill';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe';
 
+// const customConfig: ShareButtonsConfig = {
+//   include: ['facebook','whatsapp' ],
+//   theme: 'material-dark',
+//   size: 3,
+//   debug: true,
+//   gaTracking: true,
+//   twitterAccount: 'twitterUsername'
+// }
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -29,6 +40,8 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
     CommonModule,
      HomeRoutingModule,
      NgxPaginationModule,
+    //  ShareButtonsModule.withConfig(customConfig),
+    //  ShareIconsModule,
       MaterialModule,
        FlexLayoutModule,
         ScrollingModule,
