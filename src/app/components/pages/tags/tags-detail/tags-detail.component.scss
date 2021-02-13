@@ -45,6 +45,7 @@ color: #E1E0E3;
     grid-column-gap: 40px;
     grid-row-gap: 20px;
     #success-box{
+      overflow: hidden;
       left: 35%;
       width: 36%;
       height: 80%;
@@ -95,6 +96,8 @@ color: #E1E0E3;
 @media(min-width: 1010px){
   .container {
     #success-box{
+      // position: relative;
+      overflow: hidden;
       left: 37%;
       width: 40%;
       height: 100%;
@@ -109,7 +112,7 @@ color: #E1E0E3;
       }
     }
     #contenedor{
-      position: relative;
+      
       margin: auto;
       overflow: hidden;
       width: 1000px;

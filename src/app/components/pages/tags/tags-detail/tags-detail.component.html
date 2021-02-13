@@ -2,8 +2,21 @@
 
     <div  class="container animated fadeIn" *ngIf="postscat$ | async as posts; else loading"  >
       
-        <div id="success-box" *ngIf="posts.length == 0">
-           
+        
+     <ng-container *ngFor="let post of posts">
+      <mat-card  class="post-card">
+        <app-post [post]="post"></app-post>
+      </mat-card>
+    </ng-container>
+    <ng-container *ngIf="posts.length > 1 ; else alert">
+       
+    </ng-container>
+   
+    </div>
+    <ng-template #alert>
+      <div id="contenedor">
+        <div id="success-box" >
+             
           <div class="face">
             <div class="eye"></div>
             <div class="eye right"></div>
@@ -13,12 +26,8 @@
           <div class="message"><h1 class="alert">Lo Siento!</h1><p>No hay resultados para tu busqueda!</p></div>
          
         </div>
-     
-      <mat-card  class="post-card  " *ngFor="let post of posts ">
-        <app-post [post]="post"></app-post>
-      </mat-card>
-    </div>
-  
+      </div>
+    </ng-template>
     <ng-template #loading>
       <div class="container-spinner">
         <app-spinner></app-spinner>
