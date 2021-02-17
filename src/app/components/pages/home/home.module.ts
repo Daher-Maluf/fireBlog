@@ -17,6 +17,11 @@ registerLocaleData(localEs);
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SpinnerComponent } from 'src/app/shared/spinner/spinner.component';
 import { QuillModule } from 'ngx-quill';
+import * as QuillNamespace from 'quill';
+import ImageResize from 'quill-image-resize-module';
+const Quill: any = QuillNamespace;
+Quill.register('modules/imageResize', ImageResize);
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe';
 
@@ -47,6 +52,10 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
         ScrollingModule,
          QuillModule.forRoot({modules: {
           syntax: false,
+          imageResize: {
+            displaySize: true,
+          
+          },
           toolbar: [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
@@ -66,8 +75,9 @@ import { TransformarfechaPipe } from 'src/app/shared/pipes/transformarfecha.pipe
 
     ['clean'],                                         // remove formatting button
 
-    ['link']                         // link and image, video
-          ]
+    ['link', 'image', 'video']                         // link and image, video
+          ],
+          
         }})],
   exports: [
     PostComponent,
