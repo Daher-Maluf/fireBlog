@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -22,6 +23,11 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () =>
           import('./profile/profile.module').then(m => m.ProfileModule)
+      },
+     { 
+       path: 'kanban',
+       loadChildren: () =>
+        import('./kanban/Kanban.module').then(m => m.KanbanModule)
       }
     ]
   }
