@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 import {Task} from '../task/task';
 
@@ -7,14 +7,13 @@ import {Task} from '../task/task';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent  {
   @Input() task: Task;
   // tslint:disable-next-line: no-unused-expression
-  @Output() edit = new EventEmitter();
+  @Output() edit = new EventEmitter<Task>();
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+ 
 
 }
