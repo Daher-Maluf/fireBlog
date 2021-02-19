@@ -8,10 +8,8 @@
         <app-post [post]="post"></app-post>
       </mat-card>
     </ng-container>
-    <ng-container *ngIf="posts.length > 1 ; else alert">
+    <ng-container *ngIf="posts.length > 1 ; else alert"></ng-container>
        
-    </ng-container>
-   
     </div>
     <ng-template #alert>
       <div id="contenedor">
@@ -23,7 +21,7 @@
             <div class="mouth sad"></div>
           </div>
           <div class="shadow scale"></div>
-          <div class="message"><h1 class="alert">Lo Siento!</h1><p>No hay resultados para tu busqueda!</p></div>
+          <div class="message"><h1 class="alert">Lo Siento!</h1><p>No hay resultados disponibles...</p></div>
          
         </div>
       </div>

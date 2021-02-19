@@ -38,8 +38,8 @@ export class KanbanComponent implements OnInit {
       return Promise.all([
         this.fs.collection(event.previousContainer.id).doc(item.id).delete(),
         this.fs.collection(event.container.id).add(item)
-      ])
-    })
+      ]);
+    });
     transferArrayItem(
       event.previousContainer.data,
       event.container.data,
@@ -59,13 +59,12 @@ export class KanbanComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: TaskDialogResult) => {
      if(result.delete){
        this.fs.collection(list).doc(task.id).delete();
-     } else{
+     } else {
        this.fs.collection(list).doc(task.id).update(task);
      }
-      
     });
   }
-  
+
 
   newTask(): void{
     const dialogRef = this.dialog.open(TaskDialogComponent, {
