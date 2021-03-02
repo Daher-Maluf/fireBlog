@@ -6,6 +6,10 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+#Firebase
+/.firebase
+/.firebaserc
+/firestore.rules
 
 # dependencies
 /node_modules
@@ -46,4 +50,7 @@ testem.log
 Thumbs.db
 
 # Enviroments
-/enviroments
+
+/src/environments/**
+**/src/environments/environment.prod.ts
+**/src/environments/environment.ts
