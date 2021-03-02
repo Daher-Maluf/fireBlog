@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostService } from '../../posts/post.service';
+
 
 
 
@@ -9,12 +9,10 @@ import { PostService } from '../../posts/post.service';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  
   @Input() post: any;
 
-  constructor(private postSvc: PostService ) { }
+  constructor( ) { }
 
   ngOnInit() {
-   
   }
 }
