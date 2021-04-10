@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import { map, finalize } from 'rxjs/operators';
 import { Articulo } from '../../shared/models/post.interface';
 import { FileI } from '../../shared/models/file.interface';

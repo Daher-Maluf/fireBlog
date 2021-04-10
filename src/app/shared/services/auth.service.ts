@@ -5,27 +5,29 @@ import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { FileI } from '../models/file.interface';
-
+import firebase from "firebase/app";
+import "firebase/auth";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public userData$: Observable<firebase.User>;
   private filePath: string;
-
+  public auth;
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
+    this.auth = firebase.auth;
     this.userData$ = afAuth.authState;
   }
   resetPassword(email: string){
-   return this.afAuth.auth.sendPasswordResetEmail(email);
+   return this.auth.sendPasswordResetEmail(email);
   }
   loginByEmail(user: UserI) {
     const { email, password } = user;
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.auth.signOut();
   }
   preSaveUserProfile(user: UserI, image?: FileI): void {
     if (image) {
@@ -51,7 +53,7 @@ export class AuthService {
   }
 
   private saveUserProfile(user: UserI) {
-    this.afAuth.auth.currentUser.updateProfile({
+    this.auth.currentUser.updateProfile({
       displayName: user.displayName,
       photoURL: user.photoURL
     })

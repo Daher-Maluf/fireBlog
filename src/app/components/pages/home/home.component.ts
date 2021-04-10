@@ -15,8 +15,9 @@ export class HomeComponent implements OnInit {
 
   public posts$: Observable<Articulo[]>;
   data: Array<Articulo>;
-  totalRecords: number;
   page = 1;
+  totalRecords: number;
+  
 
 
 
@@ -46,7 +47,6 @@ export class HomeComponent implements OnInit {
       this.posts$ = of(this.data);
     });
   }
-
 
 
 

@@ -15,7 +15,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 /* Firebase */
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
+import { AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -34,6 +34,7 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
 import { HomeModule } from './components/pages/home/home.module';
 import { BuscarModule } from './components/pages/buscar/buscar.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 const customConfig: ShareButtonsConfig = {
   include: ['facebook','whatsapp','twitter','reddit','copy' ],
@@ -78,11 +79,12 @@ const customConfig: ShareButtonsConfig = {
     FlexLayoutModule,
     QuillModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ScullyLibModule,
     
 
   ],
   providers: [
-    { provide: StorageBucket, useValue: 'gs://ngblog-149c9.appspot.com' }
+    // { provide: StorageBucket, useValue: 'gs://ngblog-149c9.appspot.com' }
   ],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
